@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <title>Home</title>
+        <link href="home.css" rel="stylesheet" type="text/css"/>  
+    
+        <script>
+            
+            window.smoothScroll = function(target) {
+    var scrollContainer = target;
+    do { //find scroll container
+        scrollContainer = scrollContainer.parentNode;
+        if (!scrollContainer) return;
+        scrollContainer.scrollTop += 1;
+    } while (scrollContainer.scrollTop == 0);
+
+    var targetY = 0;
+    do { //find the top of target relatively to the container
+        if (target == scrollContainer) break;
+        targetY += target.offsetTop;
+    } while (target = target.offsetParent);
+
+    scroll = function(c, a, b, i) {
+        i++; if (i > 30) return;
+        c.scrollTop = a + (b - a) / 30 * i;
+        setTimeout(function(){ scroll(c, a, b, i); }, 20);
+    }
+    // start scrolling
+    scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
+}
+            function readUser(){
+               
+                   
+                    if(window.document.cookie==""){
+                        open('../login/login.html')
+                       
+                        document.getElementById("logout").style.display = "none"; 
+                    }
+                    else{
+                        
+                        alert('User Name is \n '+ document.cookie.split('=')[1])
+                        document.getElementById("logout").style.display = "inline-block";
+                        document.getElementById("reglog").style.display = "none";
+                    }
+                
+            }
+
+            function delCookie(){
+                
+                    var expdte = new Date
+                    expdte.setDate(expdte.getDate()-10)
+                    document.cookie = "Cust_Name = "+document.cookie.split('=')[1]+"; expires="+expdte.toGMTString();
+                    document.getElementById("reglog").style.display = "inline-block";
+                    document.getElementById("logout").style.display = "none";
+                
+            }
+
+            function openForm(){
+               open('../login/login.html');
+                close()
+            }
+
+        </script>
+        
+        <style>
+
+            /*code to change background color*/
+            .navbar-nav>.hom>a::after {
+                content: '';
+                height: 3px;
+                width: 100%;
+                background: linear-gradient(to right, #f45c43, #eb3349 );
+                position: absolute;
+                left: 0;
+                bottom: -5px;
+                transition: 00.5s;  
+            }
+
+        </style>
+    
+    </head>
+    <body onload="readCookie();" >       
+        <header>
+            <div class="navbar container">       
+                <a href="#" class="logo"><img src="logo.PNG" alt="logo"></a> 
+                <ul class="navbar-nav">
+                    <li class="hom" onclick="smoothScroll(document.getElementById('home'));"><input class="nav" type="button" value="Home"   /></li>
+                    <li class="acc"  onclick="smoothScroll(document.getElementById('parts')); "><input class="nav" type="button" value="Accessories"  /></li>
+                    <!-- <li class="acc"  onclick=" scroll();"><input class="nav" type="button" value="Accessories"  /></li> -->
+                    <li class="pro"><input class="nav" onclick="readUser(); " type="button" value="Profile"></li>
+                    <li class="reglog" id="reglog" onclick="openForm();"><input class="nav" type="button" value="Register/LogIn"></li>
+                    <li class="logout" id="logout" onclick="delCookie();"><input class="nav" type="submit" value="LogOut"></li>
+                    
+                    <span id="search-icon"><ion-icon name="search-outline"></ion-icon></span>
+                </ul>
+                
+                <div class="search-box container">
+                    <input type="search" name="" id="" placeholder="Search here...">
+                </div>
+            </div>
+        </header>
+        <script src="main.js"></script>
+            <section class="home" id="home">
+                <div class="home-box">
+                <div class="home-text">
+                    <h1>We Have Everything <br>Your <span class="span">Car</span> Need</h1>
+                    <p>We created this website</p>
+                    <input type="button" value="Discover Now" class="btn" onclick="smoothScroll(document.getElementById('parts'));">
+                </div>
+                </div>
+            </section>           
+        <section class="parts" id="parts">
+            <div class="heading">
+                <span class="partspan">What WeOffer</span>
+                <h2>Our Accessories Always Exelent</h2>
+                <p>We created this website</p>
+            </div>
+            <div class="parts-container container">
+                <!-- box1 -->
+                <div class="box">
+                    <img src="p.jpg" alt="part 1">
+                    <h3>Auto Spare Parts</h3>
+                    <span class="span1">Rs.120</span>
+                    <!-- <a href="#" class="btn">Buy Now</a> -->
+                    <input type="button" value="Buy Now" class="btn">
+                    <a href="#" class="details">View Details</a>
+                </div>
+                <!-- box2 -->
+                <div class="box">
+                    <img src="p.jpg" alt="part 2">
+                    <h3>Auto Spare Parts</h3>
+                    <span class="span1">Rs.120</span>
+                    <a href="#" class="btn">Buy Now</a>
+                    <a href="#" class="details">View Details</a>
+                </div>
+                <!-- box3 -->
+                <div class="box">
+                    <img src="p.jpg" alt="part 3">
+                    <h3>Auto Spare Parts</h3>
+                    <span class="span1">Rs.120</span>
+                    <a href="#" class="btn">Buy Now</a>
+                    <a href="#" class="details">View Details</a>
+                </div>
+                <!-- box4 -->
+                <div class="box">
+                    <img src="p.jpg" alt="part 4">
+                    <h3>Auto Spare Parts</h3>
+                    <span class="span1">Rs.120</span>
+                    <a href="#" class="btn">Buy Now</a>
+                    <a href="#" class="details">View Details</a>
+                </div>
+                <!-- box5 -->
+                <div class="box">
+                    <img src="p.jpg" alt="part 5">
+                    <h3>Auto Spare Parts</h3>
+                    <span class="span1">Rs.120</span>
+                    <a href="#" class="btn">Buy Now</a>
+                    <a href="#" class="details">View Details</a>
+                </div>
+                <!-- box6 -->
+                <div class="box">
+                    <img src="p.jpg" alt="part 6">
+                    <h3>Auto Spare Parts</h3>
+                    <span class="span1">Rs.120</span>
+                    <a href="#" class="btn">Buy Now</a>
+                    <a href="#" class="details">View Details</a>
+                </div>
+            </div>
+        </section>
+        <section class="about container" id="about">
+            <div class="about-img">
+                <img class="about-img" src="about.jpg" alt="about img">
+            </div>
+            <div class="about-text">
+                <spaan class="about-span">About Us</spaan>
+            <h2>Cheap Prices With <br> Quality Cars</h2>
+            <p></p>
+            <a href="" class="btn">Learn More</a>
+            </div>
+        </section>
+        
+
+        <section class="footer">
+            <div class="footer-container container">
+                <div class="footer-box">
+                    <a href="#"><img class="logo" src="logo.png" alt="logo"></a>
+                    <div class="social">
+                        <a href="#"><span><ion-icon name="logo-facebook"></ion-icon></span></a>
+                        <a href="#"><span><ion-icon name="logo-instagram"></ion-icon></span></a>
+                        <a href="#"><span><ion-icon name="logo-twitter"></ion-icon></span></a>
+                    </div>
+                </div>
+                <div class="footer-box">
+                    <h3>Pages</h3>
+                    <a href="#" onclick="smoothScroll(document.getElementById('home'));">Home</a>
+                    <a href="#"  onclick="smoothScroll(document.getElementById('parts'));">Accessories</a>
+                    <a href="#">Profile</a>
+                    <a href="#" onclick="openForm();">Login/Register</a>
+                </div>
+                <div class="footer-box">
+                    <h3>Legal</h3>
+                    <a href="#">Privacy</a>
+                    <a href="#">Refund Policy</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+                <div class="footer-box">
+                    <h3>Contact</h3>
+                    <a href="#">India</a>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

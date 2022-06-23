@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <title>Login</title>
+        <link href="login.css" rel="stylesheet" type="text/css"/>  
+    
+        <script>
+            function register(){
+                window.document.forms.login.style.left = "-400px"
+                window.document.forms.register.style.left = "50px"
+                btn = window.document.getElementById("btn")
+                btn.style.left = "110px"
+            }
+            function login(){
+                window.document.forms.login.style.left = "50px"
+                window.document.forms.register.style.left = "450px"
+                btn = window.document.getElementById("btn")
+                btn.style.left = "0"
+            }
+            function MouseRollover() {
+                document.getElementById("reg-span").style.fontSize = "16px";
+}
+function MouseOut() {
+    document.getElementById("reg-span").style.fontSize = "15px";
+}
+
+function writeCookie(){
+                with(document.forms.abc){
+                    window.document.cookie = "Cust_Name = "+uname.value+"; path=../home/home.html"
+                   alert ("hii");
+                   open('../home/home.html')
+                   setTimeout(() => {
+                    close()
+                   }, 2000);
+                  
+                }
+            }
+
+            function  closeForm(){
+                open('../home/home.html')
+                close();
+            }
+
+            function WC(){
+                if(window.document.cookie==""){
+                        alert('Hello 12 '+ document.cookie.split('=')[1]);
+                         }
+                     if(windowdocument.cookie!=""){
+                        alert('Hello  '+ document.cookie.split('=')[1]);
+                         }
+            }
+
+        </script>
+        <style>
+
+            /*code to change background color*/
+            .navbar-nav>.reglog>a::after {
+                content: '';
+                height: 3px;
+                width: 100%;
+                background: linear-gradient(to right, #ff105f, #ffad06);
+                position: absolute;
+                left: 0;
+                bottom: -5px;
+                transition: 00.5s;  
+            }
+        </style>
+    </head>
+    <body>    
+        <div class="banner">
+            <div class="navbar">
+                <div class="logo-style">
+                <a href="#"><img src="logo.PNG" alt="logo" class="logo"></a>
+                </div>
+                <ul class="navbar-nav">
+                    <li class="home"><a href="#" onclick="closeForm();">Home</a></li>
+                    <li class="accessories"><a href="#" onclick="closeForm();">Accessories</a></li>
+                    <li class="profile"><a href="#" onclick="alert('First Create User')">Profile</a></li>
+                    <li class="reglog"><a href="#">Register/LogIn</a></li>
+                </ul>
+            </div>
+            <div class="form-box">
+                <div class="button-box"> 
+                    <div id="btn">
+
+                    </div>
+                    <button type="button" class="toggle-btn" onclick="login();">Log In </button>
+                    <button type="button" class="toggle-btn" onclick="register();">Register </button>
+                </div>
+                <div class="social-icons">
+                    <i class="fab fa-facebook"></i>
+                    <span id="span"><ion-icon name="logo-facebook"></ion-icon></span>
+                    <span id="span"><ion-icon name="logo-instagram"></ion-icon></span>
+                    <span id="span"><ion-icon name="logo-twitter"></ion-icon></span>
+                </div>
+                <form action="" id="login" name="abc" class="input-group">
+                    <label class="reg-span">Don't have an account yet?  <span id="reg-span" onMouseOver="MouseRollover()"  onMouseOut="MouseOut()" onclick="register();">Register</span></label>
+                    <input type="email" name="uname" class="input-field" placeholder="User Id" required>
+                    <input type="password" class="input-field" placeholder="Password" required>
+                    <input type="checkbox" class="chech-box" name="" id=""><span class="span">Remember Password</span>
+                    <button type="submit" class="submit-btn" onclick="writeCookie(); closeForm();">Log in</button>
+                </form>
+                <form action="" id="register"  class="input-group">
+                    <input type="email" name="uname" class="input-field" placeholder="Email Id" required>
+                    <input type="password" class="input-field" placeholder="Confirm Password" required>
+                    <input type="password" class="input-field" placeholder="Password" required>
+                    <input type="checkbox" class="chech-box" name="" id=""><span class="span">I agree to terms & conditions</span>
+                    <button type="submit" onclick="writeCookie(); closeForm();" class="submit-btn">Register</button>
+                </form>
+            </div>           
+        </div>
+    </body>
+</html>
